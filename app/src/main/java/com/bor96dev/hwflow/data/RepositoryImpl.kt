@@ -6,9 +6,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.merge
+import javax.inject.Inject
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class RepositoryImpl(
+class RepositoryImpl @Inject constructor(
     private val asia: AsiaDataSource,
     private val europe: EuropeDataSource,
     private val america: NorthAmericaDataSource
