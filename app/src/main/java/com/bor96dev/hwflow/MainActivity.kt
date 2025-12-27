@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -48,7 +49,12 @@ fun MainScreen(modifier: Modifier = Modifier, viewModel: MainViewModel = hiltVie
             .padding(top = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Все страны:", fontSize = 24.sp, fontWeight = FontWeight.Bold)
+        Text(
+            text = stringResource(R.string.all_cities),
+            fontSize = 24.sp,
+            modifier = Modifier.padding(16.dp),
+            fontWeight = FontWeight.Bold
+        )
 
         LazyColumn {
             items(countries) { country ->

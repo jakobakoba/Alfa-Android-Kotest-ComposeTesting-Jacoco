@@ -16,7 +16,7 @@ class MainViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            repository.getAllCountries().collect { country ->
+            repository.getAllCities().collect { country ->
                 countries.add(country)
             }
         }
