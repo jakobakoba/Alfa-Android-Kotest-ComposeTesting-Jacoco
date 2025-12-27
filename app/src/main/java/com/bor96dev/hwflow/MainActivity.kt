@@ -47,12 +47,13 @@ fun MainScreen(modifier: Modifier = Modifier, viewModel: MainViewModel = hiltVie
         modifier = modifier
             .fillMaxSize()
             .padding(top = 16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = stringResource(R.string.all_cities),
             fontSize = 24.sp,
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier
+                .padding(16.dp)
+                .align(Alignment.CenterHorizontally),
             fontWeight = FontWeight.Bold
         )
 

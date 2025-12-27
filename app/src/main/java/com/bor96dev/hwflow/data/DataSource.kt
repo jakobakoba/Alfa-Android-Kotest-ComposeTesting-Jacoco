@@ -13,7 +13,7 @@ class AsiaDataSource : DataSource {
     override fun getData(): Flow<String> = flow {
         for (city in listOf("Tokyo", "Beijing", "Seoul")) {
             delay(Random.nextLong(1000, 2000))
-            emit("$city - AsiaDataSource")
+            emit("$city - Asia")
         }
     }
 }
@@ -22,7 +22,7 @@ class EuropeDataSource : DataSource {
     override fun getData(): Flow<String> = flow {
         for (city in listOf("Paris", "London", "Berlin")) {
             delay(Random.nextLong(1000, 2000))
-            emit("$city - EuropeDataSource")
+            emit("$city - Europe")
         }
     }
 }
@@ -36,7 +36,7 @@ class NorthAmericaDataSource : DataSource {
         )
         ) {
             delay(Random.nextLong(500, 1000))
-            emit("$city - NorthAmericaDataSource")
+            emit("$city - North America")
         }
     }
 }
