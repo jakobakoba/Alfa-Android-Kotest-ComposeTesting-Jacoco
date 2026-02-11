@@ -13,7 +13,7 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class MainViewModelTest: BehaviorSpec( {
+class MainViewModelTest : BehaviorSpec({
     val testDispatcher = UnconfinedTestDispatcher()
 
     beforeSpec {
@@ -30,10 +30,11 @@ class MainViewModelTest: BehaviorSpec( {
             europe = EuropeDataSource(),
             america = NorthAmericaDataSource()
         )
-        When ("ViewModel создается"){
+        When("ViewModel создается") {
             val viewModel = MainViewModel(repository)
 
-            Then("список стран должен быть заполнен"){
+            Then("список стран должен быть заполнен") {
+                testDispatcher.scheduler.advanceUntilIdle()
                 viewModel.countries.size shouldBe 21
             }
         }
