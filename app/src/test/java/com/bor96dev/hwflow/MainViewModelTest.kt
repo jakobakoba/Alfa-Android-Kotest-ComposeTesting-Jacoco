@@ -6,9 +6,24 @@ import com.bor96dev.hwflow.data.NorthAmericaDataSource
 import com.bor96dev.hwflow.data.RepositoryImpl
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.resetMain
+import kotlinx.coroutines.test.setMain
 
-
+@OptIn(ExperimentalCoroutinesApi::class)
 class MainViewModelTest: BehaviorSpec( {
+    val testDispatcher = UnconfinedTestDispatcher()
+
+    beforeSpec {
+        Dispatchers.setMain(testDispatcher)
+    }
+
+    afterSpec {
+        Dispatchers.resetMain()
+    }
+
     Given("MainViewModel c datasources") {
         val repository = RepositoryImpl(
             asia = AsiaDataSource(),
