@@ -64,4 +64,7 @@ dependencies {
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.navigation.compose)
 
+    implementation(libs.kotest.runner.junit5)
+    implementation(libs.kotest.assertions.core)
+
 }
